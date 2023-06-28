@@ -27,6 +27,15 @@ const transports = (type: string) => {
           maxSize: '20m',
         },
       };
+    case constants.TEST:
+      return {
+        type: 'file-rotate',
+        options: {
+          datePattern: 'DD',
+          filename: 'logger_test-%DATE%.log',
+          dirname: logsTargetPath,
+        },
+      };
     default:
       return {
         type: 'console',
