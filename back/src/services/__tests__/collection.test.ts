@@ -6,6 +6,7 @@ describe('PH fetching collections', () => {
     const { collections } = await fetchCollections();
 
     expect(collections.totalCount).toBe(20); // Check number of collecitons
-    expect(collections.edges[0].node.id).toBe(collections.nodes[0].id); // Check if edges and nodes arrays are ordered the same way
+    expect(collections.edges[0].node.posts.totalCount).toBeDefined(); // Check if post count is not null
+    expect(collections.edges[0].node.posts.totalCount).toBe(20); // Check if post count is not null
   });
 });

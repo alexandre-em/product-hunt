@@ -28,5 +28,5 @@ export function fetchProductByDate(after: string, before: string) {
     }
   `;
 
-  return GraphQlClient.request<any>(document, query);
+  return GraphQlClient.request<QueryType>(document, query);
 }

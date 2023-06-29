@@ -14,17 +14,14 @@ export function fetchCollections() {
             id
             name
             coverImage
-          }
-        }
-        nodes {
-          id
-          posts {
-            totalCount
+            posts {
+              totalCount
+            }
           }
         }
       }
     }
   `;
 
-  return GraphQlClient.request<any>(document);
+  return GraphQlClient.request<QueryType>(document);
 }
