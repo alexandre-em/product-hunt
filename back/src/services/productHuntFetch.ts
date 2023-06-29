@@ -2,13 +2,12 @@ import { gql } from 'graphql-request';
 
 import GraphQlClient from '../utils/graphqlClient';
 
-// TODO: Create a worker to save each posts with a CRON at every night (ex: on JSON file/database if have time)
-export function fetchProductByDate(date: Date) {
-  const query = { featuredAt: `${date}` };
+export function fetchProductByDate(after: string, before: string) {
+  const query = { postedAfter: after, postedBefore: before };
 
   const document = gql`
-    query getProductByDate($featuredAt: DateTime) {
-      posts(featured: true, order: FEATURED_AT, postedAfter: "2023-06-22T00:00:00Z", postedBefore: "2023-06-22T23:59:59Z") {
+    query getProductByDate($after: DateTime, $before: DateTime) {
+      posts(featured: true, order: FEATURED_AT, postedAfter: $after, postedBefore: $before) {
         totalCount
         edges {
           cursor

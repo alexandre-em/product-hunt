@@ -2,10 +2,7 @@ import { gql } from 'graphql-request';
 
 import GraphQlClient from '../utils/graphqlClient';
 
-export function fetchProductByDate(date: Date) {
-  const query = { featuredAt: `${date}` };
-
-  // TODO: Create a worker to count on a efficient way each collections posts (ex: Save the result on JSON file)
+export function fetchCollections() {
   // Show all collections with the id, name and cover image and also the number of posts for each collections
   const document = gql`
     {
@@ -29,5 +26,5 @@ export function fetchProductByDate(date: Date) {
     }
   `;
 
-  return GraphQlClient.request<any>(document, query);
+  return GraphQlClient.request<any>(document);
 }
