@@ -1,0 +1,14 @@
+{
+  "name": "ph",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test:back": "cd back && npm test",
+    "lint:back": "cd back && npm run lint"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}
