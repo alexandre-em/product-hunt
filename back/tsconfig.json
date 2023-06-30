@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "types": ["./src/types", "jest"],
+    "types": ["jest"],
     "typeRoots": ["./@types", "./src/types", "./node_modules/@types"],
     "resolveJsonModule": true
   },

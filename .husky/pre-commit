@@ -2,4 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run lint:back
+npm run build:back
 npm run test:back

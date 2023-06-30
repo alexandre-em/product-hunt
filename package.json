@@ -6,7 +6,8 @@
   "license": "ISC",
   "scripts": {
     "test:back": "cd back && npm test",
-    "lint:back": "cd back && npm run lint"
+    "lint:back": "cd back && npm run lint",
+    "build:back": "cd back && npm run build"
   },
   "devDependencies": {
     "husky": "^8.0.3"
