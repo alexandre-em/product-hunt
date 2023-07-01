@@ -1,9 +1,9 @@
 import { gql } from 'graphql-request';
 
-import GraphQlClient from '../utils/graphqlClient';
+import GraphQlClient from '../config/graphqlClient';
 
 export function fetchProductByDate(after: string, before: string) {
-  const query = { postedAfter: after, postedBefore: before };
+  const query = { after, before };
 
   const document = gql`
     query getProductByDate($after: DateTime, $before: DateTime) {

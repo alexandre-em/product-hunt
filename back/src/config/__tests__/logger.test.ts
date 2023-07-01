@@ -30,7 +30,7 @@ describe('Logger Test', () => {
 
     logger.info('test writting log file');
 
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Waiting for the file to be created
+    await new Promise((resolve) => setTimeout(resolve, 500)); // Waiting for the file to be created
 
     expect(fs.existsSync(logsFileTargetPath)).toBe(true); // Check if log file has been created
   });

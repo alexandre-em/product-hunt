@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-import GraphQlClient from '../utils/graphqlClient';
+import GraphQlClient from '../config/graphqlClient';
 
 export function fetchCollections() {
   // Show all collections with the id, name, cover image and also the number of posts for each collections

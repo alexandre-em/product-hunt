@@ -1,17 +1,16 @@
 import { Router, Request, Response } from 'express';
 import { fetchProductByDate } from '../services/productHuntFetch';
-import logger from '../utils/logger';
+import logger from '../config/logger';
 
 const router: Router = Router();
 
 router.get('/date', async (req: Request, res: Response) => {
   try {
-    const data = await fetchProductByDate(
-      new Date(2021, 6, 27, 0, 0, 0).toISOString(),
-      new Date(2021, 6, 27, 23, 59, 59).toISOString()
-    );
+    const { before, after } = req.query;
 
-    logger.info('result', data);
+    const data = await fetchProductByDate(after as string, before as string);
+
+    logger.info('Response status fetch product by date: 200');
 
     res.status(200).send(data);
   } catch (e) {
