@@ -13,7 +13,8 @@ describe('Logger Test', () => {
 
   it('should write logs on a file', async () => {
     const logsTargetPath = process.cwd() + '/logs';
-    const logsFileTargetPath = logsTargetPath + `/logger_test-${new Date().getDate()}.log`;
+    const date = new Date().getDate();
+    const logsFileTargetPath = logsTargetPath + `/logger_test-${date < 10 ? `0${date}` : date}.log`;
 
     if (fs.existsSync(logsTargetPath)) {
       if (fs.existsSync(logsFileTargetPath)) {
@@ -29,7 +30,7 @@ describe('Logger Test', () => {
 
     logger.info('test writting log file');
 
-    await new Promise((resolve) => setTimeout(resolve, 200)); // Waiting for the file to be created
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Waiting for the file to be created
 
     expect(fs.existsSync(logsFileTargetPath)).toBe(true); // Check if log file has been created
   });
