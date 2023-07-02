@@ -19,6 +19,12 @@ export function fetchCollections() {
             }
           }
         }
+        pageInfo {
+          startCursor
+          endCursor
+          hasPreviousPage
+          hasNextPage
+        }
       }
     }
   `;

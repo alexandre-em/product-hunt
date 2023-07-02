@@ -1,0 +1,15 @@
+p {
+  max-width: 50ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+img {
+  object-fit: cover;
+  background-color: lightgrey;
+}
+
+.card {
+  max-width: 25vw;
+}

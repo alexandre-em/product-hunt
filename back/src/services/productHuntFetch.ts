@@ -24,6 +24,12 @@ export function fetchProductByDate(after: string, before: string) {
             }
           }
         }
+        pageInfo {
+          startCursor
+          endCursor
+          hasPreviousPage
+          hasNextPage
+        }
       }
     }
   `;
