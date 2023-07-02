@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+
 import { DateInput } from 'src/app/models/date.model';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-products',
@@ -10,6 +12,10 @@ import { DateInput } from 'src/app/models/date.model';
 })
 export class ProductsComponent {
   public picker: DateInput | null = null;
+  public products: any = null;
+  public pageInfo: any = null;
+
+  constructor(public productService: ProductsService) {}
 
   addInput(event: MatDatepickerInputEvent<Date>): void {
     if (!event.value) {
@@ -25,6 +31,9 @@ export class ProductsComponent {
   }
 
   getFormData(): void {
-    console.log(this.picker);
+    if (!this.picker) {
+      throw new Error('There is no date selected');
+    }
+    this.productService.getProductsByDate(this.picker);
   }
 }
