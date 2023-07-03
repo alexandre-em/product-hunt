@@ -16,6 +16,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
+  let service: ProductsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -34,6 +35,7 @@ describe('ProductsComponent', () => {
       ],
       providers: [ProductsService],
     });
+    service = TestBed.inject(ProductsService);
     fixture = TestBed.createComponent(ProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -41,5 +43,19 @@ describe('ProductsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render a product list', () => {
+    const fixture = TestBed.createComponent(ProductsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const product = compiled.querySelector('.product-list')?.children;
+    if (service.productList.length > 0) {
+      if (product) {
+        expect(product.length).toBe(service.productList.length);
+      }
+    } else {
+      expect(product).toBeUndefined();
+    }
   });
 });

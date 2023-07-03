@@ -23,7 +23,7 @@
         <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
         Loading products...
       </div>
-      <div class="list-footer" *ngIf="productService.currentPageInfo && !productService.currentPageInfo.hasNextPage">
+      <div id="no-item" class="list-footer" *ngIf="productService.currentPageInfo && !productService.currentPageInfo.hasNextPage">
         No more products for the selected date
       </div>
     </mat-list>

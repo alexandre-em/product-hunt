@@ -9,6 +9,7 @@
     "lint:back": "cd back && npm run lint",
     "build:back": "cd back && npm run build",
     "lint:front": "cd front && yarn lint",
+    "test:front": "cd front && yarn test",
     "build:front": "cd front && yarn build"
   },
   "devDependencies": {
