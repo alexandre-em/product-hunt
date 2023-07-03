@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { ProductsService } from './products.service';
 import { DateInput } from 'src/app/models/date.model';
+import { environment } from 'src/environments/environment';
 
 describe('ProductsService', () => {
   let httpClient: HttpClient;
@@ -81,7 +82,7 @@ describe('ProductsService', () => {
 
     service.getProductsByDate(new DateInput(after, before));
 
-    const req = httpTestingController.expectOne(`http://localhost:5000/api/products/date?after=${after}&before=${before}`);
+    const req = httpTestingController.expectOne(`${environment.apiUrl}/products/date?after=${after}&before=${before}`);
     expect(req.request.method).toEqual('GET');
 
     req.flush(expectedRes); //Return expectedEmps

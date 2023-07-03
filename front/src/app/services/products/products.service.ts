@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { DateInput } from 'src/app/models/date.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,7 @@ export class ProductsService {
 
   private fetchProductsByDate(date: DateInput, cursor?: string) {
     const next = !cursor ? '' : `&next=${cursor}`;
-    // TODO: Replace url by env var (Setup env var on project)
-    return this.http.get(`http://localhost:5000/api/products/date?after=${date.after}&before=${date.before}${next}`);
+    return this.http.get(`${environment.apiUrl}/products/date?after=${date.after}&before=${date.before}${next}`);
   }
 
   private addProductToList(toAdd: Array<Partial<IEdge<PostType>>>) {
