@@ -6,9 +6,9 @@ const router: Router = Router();
 
 router.get('/date', async (req: Request, res: Response) => {
   try {
-    const { before, after } = req.query;
+    const { before, after, next } = req.query;
 
-    const data = await fetchProductByDate(after as string, before as string);
+    const data = await fetchProductByDate(after as string, before as string, next as string);
 
     logger.info('Response status fetch product by date: 200');
 

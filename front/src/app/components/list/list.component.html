@@ -1,11 +1,12 @@
-<mat-card class="card">
-  <img mat-card-image height="200" [src]="coverImage[0].url" alt=" " loading="lazy" />
-  <mat-card-content>
-    <mat-card-title>{{ name }}</mat-card-title>
-    <mat-card-subtitle>{{ date }}</mat-card-subtitle>
-    <p>{{ description }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button (click)="goToUrl()">DETAILS</button>
-  </mat-card-actions>
-</mat-card>
+<div class="item-content" (click)="goToUrl()">
+  <img id="item-thumbnail" [src]="coverImage[0].url" loading="lazy" />
+  <mat-list-item lines="3">
+    <span matListItemTitle>{{ name }}</span>
+    <span matListItemLine>{{ date }}</span>
+    <span>{{ description }}</span>
+  </mat-list-item>
+  <button mat-icon-button>
+    <mat-icon color="primary"> launch </mat-icon>
+  </button>
+</div>
+<mat-divider></mat-divider>

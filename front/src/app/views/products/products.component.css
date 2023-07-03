@@ -1,4 +1,30 @@
+h1 {
+  align-self: center;
+  font-weight: 900;
+  color: #3f51b5;
+}
+
 .main {
   display: flex;
   flex-direction: column;
+}
+
+.product-scroll {
+  width: 95vw;
+  height: calc(95vh - 224px);
+}
+
+.product-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.list-footer {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+  color: #b2b9e1;
 }

@@ -1,15 +1,20 @@
-p {
-  max-width: 50ch;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-img {
+#item-thumbnail {
+  width: 200px;
+  height: 100px;
   object-fit: cover;
   background-color: lightgrey;
+  border-radius: 8px;
 }
 
-.card {
-  max-width: 25vw;
+.item-content {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .item-content {
+    flex-wrap: wrap;
+  }
 }

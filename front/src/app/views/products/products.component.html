@@ -1,19 +1,31 @@
 <div class="main">
   <mat-form-field>
-    <mat-label>Please select a date</mat-label>
-    <input matInput [matDatepicker]="picker" (dateInput)="addInput($event)" />
+    <mat-label>Select a date to display featured products</mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="date" (dateChange)="addInput($event)" />
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <button (click)="getFormData()">press</button>
+  <h1>Click on a product to see details on ProductHunt</h1>
 
-  {{ productService.productList[0]?.node?.name || 'null' }}
-  <app-list
-    [name]="productService.productList[0]?.node?.name || 'name'"
-    [url]="productService.productList[0]?.node?.url || 'url'"
-    [description]="productService.productList[0]?.node?.description || 'description'"
-    [date]="productService.productList[0]?.node?.featuredAt || 'date'"
-    [coverImage]="productService.productList[0]?.node?.media || 'image'"></app-list>
+  <cdk-virtual-scroll-viewport itemSize="72" #scroller class="product-scroll">
+    <mat-list>
+      <ng-container *cdkVirtualFor="let product of productService.productList" class="product-list">
+        <app-list
+          [name]="product.node?.name || 'name'"
+          [url]="product.node?.url || 'url'"
+          [description]="product.node?.description || 'description'"
+          [date]="product.node?.featuredAt || 'date'"
+          [coverImage]="product.node?.media || 'image'"></app-list>
+      </ng-container>
+      <div *ngIf="productService.isLoading" class="list-footer">
+        <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
+        Loading products...
+      </div>
+      <div class="list-footer" *ngIf="productService.currentPageInfo && !productService.currentPageInfo.hasNextPage">
+        No more products for the selected date
+      </div>
+    </mat-list>
+  </cdk-virtual-scroll-viewport>
 </div>
