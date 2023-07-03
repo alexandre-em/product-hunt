@@ -7,7 +7,9 @@
   "scripts": {
     "test:back": "cd back && npm test",
     "lint:back": "cd back && npm run lint",
-    "build:back": "cd back && npm run build"
+    "build:back": "cd back && npm run build",
+    "lint:front": "cd front && yarn lint",
+    "build:front": "cd front && yarn build"
   },
   "devDependencies": {
     "husky": "^8.0.3"

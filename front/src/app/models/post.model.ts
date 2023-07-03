@@ -1,30 +1,30 @@
 export class Post {
   // public collections: IConnection<CollectionType>;
-  public commentsCount: string;
-  public createdAt: string;
-  public description: string;
-  public featuredAt: string;
-  public id: string;
-  public isCollected: boolean;
-  public isVoted: boolean;
-  public makers: boolean;
+  public commentsCount: string | null;
+  public createdAt: string | null;
+  public description: string | null;
+  public featuredAt: string | null;
+  public id: string | null;
+  public isCollected: boolean | null;
+  public isVoted: boolean | null;
+  public makers: boolean | null;
   public media: Array<{
     type: string;
     url: string;
     videoUrl: string;
-  }>;
-  public name: string;
-  public productLinks: Array<{ type: string; url: string }>;
-  public reviewsCount: string;
-  public reviewsRating: string;
-  public slug: string;
-  public tagline: string;
-  public thumbnail: { type: string; url: string; videoUrl: string };
-  public url: string;
-  public votesCount: number;
-  public website: string;
+  }> | null;
+  public name: string | null;
+  public productLinks: Array<{ type: string; url: string }> | null;
+  public reviewsCount: string | null;
+  public reviewsRating: string | null;
+  public slug: string | null;
+  public tagline: string | null;
+  public thumbnail: { type: string; url: string; videoUrl: string } | null;
+  public url: string | null;
+  public votesCount: number | null;
+  public website: string | null;
 
-  constructor(post: any) {
+  constructor(post: PostType) {
     // this.collections = post.collections || null;
     this.commentsCount = post.commentsCount || null;
     this.createdAt = post.createdAt || null;

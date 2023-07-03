@@ -1,5 +1,5 @@
-<div class="item-content" (click)="goToUrl()">
-  <img id="item-thumbnail" [src]="coverImage[0].url" loading="lazy" />
+<a [href]="url" class="item-content" target="_blank">
+  <img id="item-thumbnail" [src]="coverImage[0].url" alt=" " loading="lazy" />
   <mat-list-item lines="3">
     <span matListItemTitle>{{ name }}</span>
     <span matListItemLine>{{ date }}</span>
@@ -8,5 +8,5 @@
   <button mat-icon-button>
     <mat-icon color="primary"> launch </mat-icon>
   </button>
-</div>
+</a>
 <mat-divider></mat-divider>

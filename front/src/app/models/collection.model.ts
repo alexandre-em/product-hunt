@@ -1,18 +1,18 @@
 export class Collection {
-  public coverImage: string;
-  public createdAt: string;
-  public description: string;
-  public featuredAt: string;
-  public followerCount: number;
-  public id: string;
-  public isFollowing: boolean;
-  public name: string;
-  // public posts: IConnection<ProductType>;
-  public tagline: string;
-  public url: string;
-  public userId: string;
+  public coverImage: string | null;
+  public createdAt: string | null;
+  public description: string | null;
+  public featuredAt: string | null;
+  public followerCount: number | null;
+  public id: string | null;
+  public isFollowing: boolean | null;
+  public name: string | null;
+  public posts: IConnection<PostType> | null;
+  public tagline: string | null;
+  public url: string | null;
+  public userId: string | null;
 
-  constructor(collection: any) {
+  constructor(collection: CollectionType) {
     this.coverImage = collection?.coverImage || null;
     this.createdAt = collection?.createdAt || null;
     this.description = collection?.description || null;

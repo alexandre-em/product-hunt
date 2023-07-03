@@ -1,7 +1,3 @@
-interface IFonctionQuery<T> {
-  [name: string]: T;
-}
-
 interface IEdge<T> {
   cursor: string;
   node: T;
@@ -64,6 +60,6 @@ type CollectionType = {
 };
 
 type QueryType = {
-  posts: IConnection<PostType>;
-  collections: IConnection<CollectionType>;
+  posts?: IConnection<PostType>;
+  collections?: IConnection<CollectionType>;
 };

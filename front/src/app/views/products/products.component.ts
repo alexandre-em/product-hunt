@@ -1,4 +1,4 @@
-import { Component, NgZone, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
@@ -12,12 +12,10 @@ import { ProductsService } from 'src/app/services/products/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit, AfterViewInit {
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
 
   public date: FormControl<Date | null> = new FormControl(new Date());
-  public products: any = null;
-  public pageInfo: any = null;
 
   constructor(private ngZone: NgZone, public productService: ProductsService) {}
 

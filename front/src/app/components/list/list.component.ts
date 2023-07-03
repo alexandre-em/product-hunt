@@ -12,11 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatButtonModule, MatListModule, MatDividerModule, MatIconModule],
 })
 export class ListComponent {
-  @Input() name: string = '';
-  @Input() url: string = '';
-  @Input() description: string = '';
-  @Input() date: string = '';
-  @Input() coverImage: string | Array<any> = '';
+  @Input() name = '';
+  @Input() url = '';
+  @Input() description = '';
+  @Input() date = '';
+  @Input() coverImage: Array<{ url: string }> = [];
 
   goToUrl() {
     window.open(this.url, '_blank');
