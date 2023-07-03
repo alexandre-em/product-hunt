@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('AppComponent', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, MatToolbarModule],
       declarations: [AppComponent],
     })
   );
@@ -22,10 +23,22 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('front');
   });
 
-  it('should render title', () => {
+  it('should render logo image', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('front app is running!');
+    const img = compiled.querySelector('img')?.src;
+    expect(img).toContain('https://ph-static.imgix.net/ph-logo-p-only.png?auto=format&auto=compress');
+  });
+
+  it('should render nav buttons', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const productBtn = compiled.querySelector('#btn-product')?.textContent;
+    expect(productBtn).toContain('Products');
+
+    const collectBtn = compiled.querySelector('#btn-collection')?.textContent;
+    expect(collectBtn).toContain('Collections');
   });
 });
