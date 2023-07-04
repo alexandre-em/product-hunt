@@ -31,7 +31,9 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     const after = new Date();
     const before = new Date();
 
+    after.setHours(0, 0, 0);
     before.setHours(23, 59, 59);
+
     this.productService.getProductsByDate(new DateInput(after, before), (err) => this._snackBar.open(err.message, 'CLOSE'));
   }
 
