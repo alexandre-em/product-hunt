@@ -3,4 +3,6 @@
   <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
   Loading...
 </div>
-<canvas class="chart" baseChart [data]="getChartData()" [type]="pieChartType"></canvas>
+<div class="collection-content">
+  <app-pie-chart [data]="getChartData()"></app-pie-chart>
+</div>
