@@ -2,6 +2,7 @@ FROM node:16 as build
 WORKDIR /front
 
 COPY package.json .
+COPY yarn.lock .
 RUN yarn
 
 COPY . .

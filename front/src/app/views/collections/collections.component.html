@@ -1,1 +1,6 @@
-<p>collections works!</p>
+<h1>Product's repartition by collection</h1>
+<div *ngIf="collectionService.isLoading" class="list-footer">
+  <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
+  Loading...
+</div>
+<canvas class="chart" baseChart [data]="getChartData()" [type]="pieChartType"></canvas>

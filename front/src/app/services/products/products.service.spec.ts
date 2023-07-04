@@ -32,7 +32,7 @@ describe('ProductsService', () => {
   it('should return featured products for a specific date', () => {
     const expectedRes = {
       posts: {
-        totalCount: 20,
+        totalCount: 1,
         edges: [
           {
             cursor: 'MQ',

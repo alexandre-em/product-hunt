@@ -1,0 +1,17 @@
+h1 {
+  align-self: center;
+  font-weight: 900;
+  color: #3f51b5;
+}
+
+.chart {
+  max-width: 350px;
+  max-height: 750px;
+}
+
+.list-footer {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+  color: #b2b9e1;
+}
