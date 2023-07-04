@@ -2,11 +2,13 @@ import { gql } from 'graphql-request';
 
 import GraphQlClient from '../config/graphqlClient';
 
-export function fetchCollections() {
+export function fetchCollections(next = '') {
+  const query = { next };
+
   // Show all collections with the id, name, cover image and also the number of posts for each collections
   const document = gql`
-    {
-      collections {
+    query getCollections($next: String) {
+      collections(after: $next) {
         totalCount
         edges {
           cursor
@@ -29,5 +31,5 @@ export function fetchCollections() {
     }
   `;
 
-  return GraphQlClient.request<QueryType>(document);
+  return GraphQlClient.request<QueryType>(document, query);
 }

@@ -1,4 +1,4 @@
-import { fetchProductByDate } from '../productHuntFetch';
+import { fetchProductByDate } from '../product';
 
 // Test based on the result of query runned on https://ph-graph-api-explorer.herokuapp.com/ platform
 describe('PH fetching products by date', () => {
