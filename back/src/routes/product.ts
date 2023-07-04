@@ -16,7 +16,11 @@ router.get('/date', async (req: Request, res: Response) => {
   } catch (e) {
     logger.error(e);
 
-    res.status(e.response.status === 200 ? 400 : e.response.status).send(e.response.errors);
+    if (e?.response?.status) {
+      res.status(e.response.status === 200 ? 400 : e.response.status).send(e.response.errors);
+    } else {
+      res.status(500).send(e);
+    }
   }
 });
 

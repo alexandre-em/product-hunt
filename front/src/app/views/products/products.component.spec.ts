@@ -12,6 +12,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { ProductsComponent } from './products.component';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -31,6 +32,7 @@ describe('ProductsComponent', () => {
         ReactiveFormsModule,
         MatProgressSpinnerModule,
         MatInputModule,
+        MatSnackBarModule,
         BrowserAnimationsModule,
       ],
       providers: [ProductsService],

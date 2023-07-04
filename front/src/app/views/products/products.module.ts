@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -26,6 +27,7 @@ import { ListComponent } from 'src/app/components/list/list.component';
     MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
 })
 export class ProductsModule {}
