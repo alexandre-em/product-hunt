@@ -1,0 +1,22 @@
+FROM node:16
+LABEL maintainer="alexandre.em@pm.me"
+WORKDIR /back
+
+COPY . /back
+RUN npm install
+
+# Environment var
+ARG ENV
+ENV ENV $ENV
+ARG PORT
+ENV PORT $PORT
+ARG PRODUCT_HUNT_URL
+ENV PRODUCT_HUNT_URL $PRODUCT_HUNT_URL
+ARG PRODUCT_HUNT_TOKEN
+ENV PRODUCT_HUNT_TOKEN $PRODUCT_HUNT_TOKEN
+
+RUN npm run build
+
+EXPOSE ${PORT}
+
+CMD node dist/app.js
