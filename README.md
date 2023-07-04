@@ -40,8 +40,8 @@ It will call the PH API with my application `KEY` and `SECRET` information to ge
     $ docker-compose up -d --build
 ```
 
-Then the front-end application will be available at the port 80 (default) : [here](http://localhost) and the back-end at the port 5000 [here](http://localhost:5000).
-If you have one of these port busy, you can change the port mapping on the `docker-compose.yaml` file
+Then the front-end application will be available from [here](https://front.traefik.me) and the back-end from [here](https://back.traefik.me).
+If you have one of these port busy (80 and $PORT defined in `.env` file), you can change the port mapping on the `docker-compose.yaml` file for the `front` and `.env` file for the `back` application
 
 ### Without Docker
 
