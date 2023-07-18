@@ -4,7 +4,7 @@ import app from '../../config/server';
 
 describe('Testing collection route', () => {
   it('Should returns collection', async () => {
-    const res = await request(app).get(`/api/collections`);
+    const res = await request(app).get(`/v1/api/collections`);
 
     expect(res.statusCode).toEqual(200); // Check if the query is accepted by the PH API
     expect(res.body.collections).toBeDefined();
@@ -12,7 +12,7 @@ describe('Testing collection route', () => {
   });
 
   it('Should returns next collection list', async () => {
-    const res = await request(app).get(`/api/collections?next=MjA`);
+    const res = await request(app).get(`/v1/api/collections?next=MjA`);
 
     expect(res.statusCode).toEqual(200); // Check if the query is accepted by the PH API
     expect(res.body.collections.edges[0].cursor).toBe('MjE');

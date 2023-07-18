@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/products', products);
-app.use('/api/collections', collections);
+app.use('/v1/api/products', products);
+app.use('/v1/api/collections', collections);
 
 export default app;

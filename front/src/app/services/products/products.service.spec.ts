@@ -80,11 +80,14 @@ describe('ProductsService', () => {
     const after = new Date(2021, 6, 27, 0, 0, 0);
     const before = new Date(2021, 6, 27, 23, 59, 59);
 
-    service.getProductsByDate(new DateInput(after, before));
+    service.fetchProductsByDate(new DateInput(after, before)).subscribe((data) => {
+      expect(data).toBe(expectedRes);
+    });
 
     const req = httpTestingController.expectOne(`${environment.apiUrl}/products/date?after=${after}&before=${before}`);
     expect(req.request.method).toEqual('GET');
 
     req.flush(expectedRes); //Return expectedEmps
+    httpTestingController.verify();
   });
 });

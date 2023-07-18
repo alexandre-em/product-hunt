@@ -7,7 +7,7 @@ describe('Testing product route', () => {
     const after = new Date(2021, 6, 27, 0, 0, 0).toISOString();
     const before = new Date(2021, 6, 27, 23, 59, 59).toISOString();
 
-    const res = await request(app).get(`/api/products/date?after=${after}&before=${before}`);
+    const res = await request(app).get(`/v1/api/products/date?after=${after}&before=${before}`);
 
     expect(res.statusCode).toEqual(200); // Check if the query is accepted by the PH API
   });
@@ -16,7 +16,7 @@ describe('Testing product route', () => {
     const after = 'aa';
     const before = 'bb';
 
-    const res = await request(app).get(`/api/products/date?after=${after}&before=${before}`);
+    const res = await request(app).get(`/v1/api/products/date?after=${after}&before=${before}`);
 
     expect(res.body.posts).toBeUndefined(); // Check if the request returns products or errors
     expect(res.body.length).toEqual(2); // Check if it detects that there is two errors on the request

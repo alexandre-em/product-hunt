@@ -30,17 +30,15 @@ services:
     container_name: back
     build:
       context: ./back
-    ports:
-      - ${PORT}:${PORT}
+    expose:
+      - ${PORT}
     environment:
       - ENV=${ENV}
       - PORT=${PORT}
       - PRODUCT_HUNT_URL=${PRODUCT_HUNT_URL}
       - PRODUCT_HUNT_TOKEN=${PRODUCT_HUNT_TOKEN}
     labels:
-      - traefik.http.routers.back.rule=Host(`back.traefik.me`)
-      - traefik.http.routers.back-tls.tls.domains[0].main=back.traefik.me
-      - traefik.http.routers.back-tls.tls.domains[0].sans=back-*.traefik.me
+      - traefik.http.routers.back.rule=Host(`dateph.traefik.me`) && PathPrefix(`/v1/api`)
       - traefik.http.routers.back.tls=true
     restart: on-failure
     networks:
@@ -52,9 +50,9 @@ services:
       context: ./front
     restart: on-failure
     labels:
-      - traefik.http.routers.front.rule=Host(`front.traefik.me`)
-      - traefik.http.routers.front-tls.tls.domains[0].main=front.traefik.me
-      - traefik.http.routers.front-tls.tls.domains[0].sans=front-*.traefik.me
+      - traefik.http.routers.front.rule=Host(`dateph.traefik.me`)
+      - traefik.http.routers.front-tls.tls.domains[0].main=dateph.traefik.me
+      - traefik.http.routers.front-tls.tls.domains[0].sans=dateph-*.traefik.me
       - traefik.http.routers.front.tls=true
     networks:
       - phapp

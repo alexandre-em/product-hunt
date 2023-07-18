@@ -17,7 +17,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
-  let service: ProductsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -37,7 +36,6 @@ describe('ProductsComponent', () => {
       ],
       providers: [ProductsService],
     });
-    service = TestBed.inject(ProductsService);
     fixture = TestBed.createComponent(ProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -52,9 +50,9 @@ describe('ProductsComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const product = compiled.querySelector('.product-list')?.children;
-    if (service.productList.length > 0) {
+    if (fixture.componentInstance.productList.length > 0) {
       if (product) {
-        expect(product.length).toBe(service.productList.length);
+        expect(product.length).toBe(fixture.componentInstance.productList.length);
       }
     } else {
       expect(product).toBeUndefined();

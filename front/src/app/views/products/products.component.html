@@ -11,7 +11,7 @@
 
   <cdk-virtual-scroll-viewport itemSize="72" #scroller class="product-scroll">
     <mat-list>
-      <ng-container *cdkVirtualFor="let product of productService.productList" class="product-list">
+      <ng-container *cdkVirtualFor="let product of productList" class="product-list">
         <app-list
           [name]="product.node?.name || 'name'"
           [url]="product.node?.url || 'url'"
@@ -19,11 +19,11 @@
           [date]="product.node?.featuredAt || 'date'"
           [coverImage]="product.node?.media || 'image'"></app-list>
       </ng-container>
-      <div *ngIf="productService.isLoading" class="list-footer">
+      <div *ngIf="isLoading" class="list-footer">
         <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
         Loading products...
       </div>
-      <div id="no-item" class="list-footer" *ngIf="productService.currentPageInfo && !productService.currentPageInfo.hasNextPage">
+      <div id="no-item" class="list-footer" *ngIf="currentPageInfo && !currentPageInfo.hasNextPage">
         No more products for the selected date
       </div>
     </mat-list>
